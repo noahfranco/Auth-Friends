@@ -1,6 +1,5 @@
 import React from "react"; 
 import axios from "axios"; 
-import { Formik } from "formik"; 
 
 class Login extends React.Component {
     state = {
@@ -18,9 +17,11 @@ class Login extends React.Component {
             }
         });
     };
-     loginCall = event => {
+
+        
+    loginCall = event => {
         event.preventDefault(); 
-        axios
+            axios
             .post("http://localhost:5000/api/login", this.state.credentials) 
             .then(res => {
                 console.log(res)
@@ -28,12 +29,31 @@ class Login extends React.Component {
             })
             .catch(error => {
                 console.log("ERROR", error)
-            })
-     }
-     
+            })    
+        }
+
      render() {
          return(
-             <p> placeholder </p> 
+             <div> 
+             <p> User Login </p> 
+             <form onSubmit={this.loginCall}> 
+                <input 
+                    type="text"
+                    name="useranme"
+                    placeholder="Username"
+                    value={this.state.credentials.username}
+                    onChange={this.handleChange}
+                /> 
+                <input 
+                    type="password"
+                    name="username"
+                    placeholder="Password"
+                    value={this.state.credentials.password}
+                    onChange={this.handleChange}
+                />
+            <button> Login In </button> 
+             </form> 
+             </div>
          )
      }
 }; 
