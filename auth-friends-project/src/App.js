@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"; 
 import Login from "./components/Login.js"; 
 import PrivateRoute from "./components/PrivateRoute.js"; 
-import { Server } from 'http';
+import Friends from './components/Friends';
 
 function App() {
   return (
@@ -13,10 +13,11 @@ function App() {
 
       <Link to="/"> Home </Link>
       <Link to="/login"> Login </Link>
+      <Link to="/protected"> Friends </Link>
       
       <div>
         <Route path="/login" component={Login} /> 
-        {/* <PrivateRoute exact path="./protected" component={Server} />  */}
+        <PrivateRoute exact path="./protected" component={Friends} /> 
       </div> 
 
 
