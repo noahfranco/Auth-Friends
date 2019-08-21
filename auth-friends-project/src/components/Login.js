@@ -1,5 +1,6 @@
 import React from "react"; 
 import axios from "axios"; 
+import Friends from "./Friends.js"; 
 
 class Login extends React.Component {
     state = {
@@ -33,6 +34,9 @@ class Login extends React.Component {
         }
 
      render() {
+         if(this.state.token !== "") {
+             return <Friends />
+         } else {
          return(
              <div> 
              <p> User Login </p> 
@@ -55,6 +59,7 @@ class Login extends React.Component {
              </form> 
              </div>
          )
+        }
      }
 }; 
 

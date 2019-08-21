@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"; 
 import Login from "./components/Login.js"; 
 import PrivateRoute from "./components/PrivateRoute.js"; 
-import Friends from './components/Friends';
+import Friends from "./components/Friends.js";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       
       <div>
         <Route path="/login" component={Login} /> 
-        <PrivateRoute exact path="./protected" component={Friends} /> 
+        <PrivateRoute exact path="/protected" component={Friends} /> 
       </div> 
 
 
