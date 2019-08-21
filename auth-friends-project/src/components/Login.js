@@ -8,7 +8,7 @@ class Login extends React.Component {
             username: "", 
             password: ""
         }
-    }
+    };
 
     handleChange = event => {
         this.setState({

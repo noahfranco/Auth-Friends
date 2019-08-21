@@ -1,6 +1,7 @@
 import React from "react"; 
 import { axiosWithAuth } from "../utils/AxiosWithAuth"; 
 import FriendsCard from "./FriendsCard.js"; 
+// import axios from "axios";
 
 class Friends extends React.Component {
     state = {
@@ -8,14 +9,14 @@ class Friends extends React.Component {
     }
 
 componentDidMount() {
-    this.getData()
+    this.getData(); 
 }
 
 getData = () => {
     axiosWithAuth()
     .get("http://localhost:5000/api/friends")
-    .the(res => {
-        console.log(res)
+    .then(res => {
+        console.log("testing axios call", res)
         this.setState({friends: res.data})
     })
     .catch(error => {
@@ -23,13 +24,14 @@ getData = () => {
     })
 }
 render() {
-    console.log(this.state.friends)
+    this.getData()
+    // console.log("testing")
     return(
         <div>
         <p> This is my Friends Folder </p>
-        { this.state.map(people => (
-            <FriendsCard people={people} /> 
-        ))}
+        { this.state.friends.map(people => {
+          return <FriendsCard key={people.id}  people={people} /> 
+        })} 
         </div> 
     )
 }
