@@ -14,24 +14,22 @@ componentDidMount() {
 
 getData = () => {
     axiosWithAuth()
-    .get("http://localhost:5000/api/friends")
+    .get("http://localhost:5000/api/friends", this.state.friends)
     .then(res => {
         console.log("testing axios call", res)
         this.setState({friends: res.data})
     })
     .catch(error => {
         console.log("ERROR", error)
-    })
+    }, []); 
 }
 render() {
-    this.getData()
-    // console.log("testing")
     return(
         <div>
         <p> This is my Friends Folder </p>
         { this.state.friends.map(people => {
           return <FriendsCard key={people.id}  people={people} /> 
-        })} 
+        })}  
         </div> 
     )
 }

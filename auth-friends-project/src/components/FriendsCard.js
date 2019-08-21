@@ -1,12 +1,13 @@
 import React from 'react'
-import friends from "./Friends.js"; 
+// import friends from "./Friends.js"; 
 
 const FriendsCard = (props) => {
+    console.log(props)
     return (
         <div>
-           <p> Name: { props.friends.name } </p> 
-            <p> Age: { props.friends .age } </p>
-            <p> Email: { props.friends.email } </p> 
+           <p> Name: { props.people.name } </p> 
+            <p> Age: { props.people.age } </p>
+            <p> Email: { props.people.email } </p> 
         </div>
     )
 };

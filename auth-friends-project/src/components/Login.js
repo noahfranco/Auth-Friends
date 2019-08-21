@@ -30,13 +30,10 @@ class Login extends React.Component {
             })
             .catch(error => {
                 console.log("ERROR", error)
-            })    
+            }, []);     
         }
 
      render() {
-         if(this.state.token !== "") {
-             return <Friends />
-         } else {
          return(
              <div> 
              <p> User Login </p> 
@@ -59,7 +56,6 @@ class Login extends React.Component {
              </form> 
              </div>
          )
-        }
      }
 }; 
 
